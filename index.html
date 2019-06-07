@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Train Scheduler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Marcellus+SC&display=swap" rel="stylesheet">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS -->
@@ -12,14 +14,16 @@
 </head>
 <body>
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+        <div class="header">
             <h1 class="display-4">Train Scheduler</h1>
             <p class="lead">All Aboard!!</p>
         </div>
-     </div>
+
+     <!-- <img src="assets/download.jpeg" id="background"></div> -->
    
     <div class="container">
+            <br>
+
         <div class="card">
             <div class="card-header">
                 Current Train Schedule
@@ -37,12 +41,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="train-name-display"></td>
-                            <td class="destination-display"></td>
-                            <td class="frequency-display"></td>
-                            <td class="next-arrival-display"></td>
-                            <td class="minutes-away-display"></td>
+                        <tr id="display">
+                       
                         </tr>
                     </tbody>
                 </table>
@@ -73,7 +73,7 @@
                         <label for="frequency">Frequency (minutes)</label>
                         <input type="text" class="form-control" id="frequency" >
                     </div>
-                    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                    <button type="submit" class="btn btn-dark" id="submit">Submit</button>
                 </form>         
             </div>
         </div>
