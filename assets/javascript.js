@@ -83,7 +83,7 @@ $( document ).ready(function() {
              // ref for html to update display
             $(".train-name-display").append("<td>", trainName);
             $(".destination-display").append("<td>", destination);
-            $(".frequency-display").append("<td>", frequency);
+            $(".frequency-display").append("<td>", frequency + " minutes");
             $(".next-arrival-display").append("<td>",  moment(nextArrival).format("hh:mm"));
             $(".minutes-away-display").append("<td>",  minutesAway);
 
