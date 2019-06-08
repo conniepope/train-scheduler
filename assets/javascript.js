@@ -46,7 +46,8 @@ $( document ).ready(function() {
        
 
         // update list
-        database.ref().on("child_added", function(snapshot) {
+        database.ref().once("child_added", function(snapshot) {
+
 
             console.log(moment(snapshot.val().dateAdded).format("MM/DD/YY"))
 
@@ -68,9 +69,9 @@ $( document ).ready(function() {
             console.log("MINUTES TILL TRAIN: " + minutesAway);
 
             var nextArrival = moment().add(minutesAway, "minutes");
-            console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm"));
+            console.log("ARRIVAL TIME: " + moment(nextArrival).format("hh:mm A"));
 
-        
+            // TRIED THIS...NO LUCK
             // for each new train, add a <row> into the table
             // $("#display").append("<tr><td>" + snapshot.val().trainName + 
             //                 "</td><td>" + snapshot.val().destination +
@@ -78,14 +79,21 @@ $( document ).ready(function() {
             //                 "</td><td>" + moment(nextArrival).format("hh:mm") +
             //                 "</td><td>" + minutesAway);
         
+            // TRIES THIS TOO... NO LUCK
+            // $("#display").append("<div class='well'><span class='member-name'> " +
+            // childSnapshot.val().trainName +
+            // " </span><span class='member-email'> " + childSnapshot.val().destination +
+            // " </span><span class='member-age'> " + childSnapshot.val().frequency +
+            // " </span></div>");
+    
 
     
              // ref for html to update display
-            $(".train-name-display").append("<td>", trainName);
-            $(".destination-display").append("<td>", destination);
-            $(".frequency-display").append("<td>", frequency + " minutes");
-            $(".next-arrival-display").append("<td>",  moment(nextArrival).format("hh:mm"));
-            $(".minutes-away-display").append("<td>",  minutesAway);
+            $(".train-name-display").append("<td>", snapshot.val().trainName);
+            $(".destination-display").append("<td>", snapshot.val().destination);
+            $(".frequency-display").append("<td>", snapshot.val().frequency + " minutes");
+            $(".next-arrival-display").append("<td>",  moment(nextArrival).format("hh:mm A"));
+            $(".minutes-away-display").append("<td>",  minutesAway + " minutes");
 
             
         // Handle the errors
